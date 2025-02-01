@@ -1,5 +1,6 @@
 package com.fcorp.soul;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -17,10 +18,8 @@ import okhttp3.RequestBody;
 import okhttp3.MultipartBody;
 import okhttp3.MediaType;
 
-import android.annotation.SuppressLint;
-
-    @SuppressLint("Instantiatable")
-    public class MediaBackupWorker extends Worker {
+@SuppressLint("Instantiatable")
+public class MediaBackupWorker extends Worker {
 
     public MediaBackupWorker(Context context, WorkerParameters params) {
         super(context, params);
