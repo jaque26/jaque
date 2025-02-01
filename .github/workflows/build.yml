@@ -1,0 +1,27 @@
+name: Android CI
+
+     on: [push]
+
+     jobs:
+       build:
+         runs-on: ubuntu-latest
+
+         steps:
+           - uses: actions/checkout@v2
+           - name: Set up JDK
+             uses: actions/setup-java@v1
+             with:
+               java-version: '17'
+           - name: Accept SDK licenses
+             run: yes | sdkmanager --licenses
+           - name: Install Android SDK
+             run: |
+               sdkmanager "platforms;android-34"
+               sdkmanager "build-tools;33.0.1"
+           - name: Build with Gradle
+             run: ./gradlew build
+           - name: Upload APK
+             uses: actions/upload-artifact@v2
+             with:
+               name: app
+               path: app/build/outputs/apk/debug/app-debug.apk
