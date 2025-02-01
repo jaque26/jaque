@@ -1,0 +1,21 @@
+// build.gradle a nivel raíz
+buildscript {
+    repositories {
+        google() // Repositorio de Google para dependencias de Android
+        mavenCentral() // Repositorio central de Maven
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.2' // Plugin de Android para Gradle
+    }
+}
+
+allprojects {
+    repositories {
+        google() // Repositorio de Google para dependencias de Android
+        mavenCentral() // Repositorio central de Maven
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
