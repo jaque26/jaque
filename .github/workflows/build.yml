@@ -14,10 +14,14 @@ jobs:
         with:
           java-version: '17'
 
-      - name: Accept SDK licenses
-        run: yes | sdkmanager --licenses
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
 
-      - name: Install Android SDK
+      - name: Accept SDK licenses
+        run: |
+          yes | sdkmanager --licenses
+
+      - name: Install Android SDK components
         run: |
           sdkmanager "platforms;android-34"
           sdkmanager "build-tools;33.0.1"
