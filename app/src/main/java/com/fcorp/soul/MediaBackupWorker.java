@@ -17,7 +17,10 @@ import okhttp3.RequestBody;
 import okhttp3.MultipartBody;
 import okhttp3.MediaType;
 
-class MediaBackupWorker extends Worker {
+import android.annotation.SuppressLint;
+
+    @SuppressLint("Instantiatable")
+    public class MediaBackupWorker extends Worker {
 
     public MediaBackupWorker(Context context, WorkerParameters params) {
         super(context, params);
